@@ -44,10 +44,11 @@ namespace XUnitStudyProject.Tests
         }
 
         [Fact]
-        public void TestPaegTest()
+        public void TestPageTest()
         {
             HomeController homeController = new HomeController();
             ViewResult result = homeController.TestPage(1) as ViewResult;
+            Assert.NotNull(result);
             
         }
     }

@@ -22,14 +22,12 @@ namespace XUnitStudyProject.Services
        
         public string ToHex(byte[] bytes)
         {
-           // string toString = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
-            var sb = new StringBuilder();
+            var stringBuilder = new StringBuilder();
             for (int i = 0; i < bytes.Length; i++)
             {
-                sb.Append(bytes[i].ToString("X2"));
+                stringBuilder.Append(bytes[i].ToString("x2"));
             }
-
-            return sb.ToString();
+            return stringBuilder.ToString();
         }
     }
 }

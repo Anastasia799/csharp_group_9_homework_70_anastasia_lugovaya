@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Xunit;
 using Xunit.Abstractions;
 using XUnitStudyProject.Controllers;
+using XUnitStudyProject.Models;
 
 
 namespace XUnitStudyProject.Tests
@@ -47,9 +48,14 @@ namespace XUnitStudyProject.Tests
         public void TestPageTest()
         {
             HomeController homeController = new HomeController();
-            ViewResult result = homeController.TestPage(1) as ViewResult;
+            ViewResult result = homeController.TestPage(5) as ViewResult;
             Assert.NotNull(result);
-            
+            Assert.Equal(typeof(TestPageViewModel), result.Model.GetType());
+            Assert.NotNull(result.Model);
+            int pageIncrement = Convert.ToInt32(homeController.ViewBag.PageIncrement);
+            Assert.Equal(6, pageIncrement);
+            Assert.NotNull(result);
+
         }
     }
 }
